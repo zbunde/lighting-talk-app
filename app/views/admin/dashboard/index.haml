@@ -1,0 +1,13 @@
+.container
+  .page-header
+    %h1 Admin Dashboard
+  .row
+    .col-md-12
+      %table.table.table-striped
+        %tbody
+          %tr
+            %td= pluralize(@lightning_talks.count, 'Talk')
+            %td.pull-right= link_to "Manage Talks", admin_lightning_talks_path, class: 'btn btn-pink'\
+          %tr
+            %td= pluralize(@users.count, 'User')
+            %td.pull-right= link_to 'Manage Users', admin_users_path, class: 'btn btn-pink'

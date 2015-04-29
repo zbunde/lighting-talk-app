@@ -1,0 +1,10 @@
+.container
+  %table.table.table-striped
+    %thead
+      %th Name
+      %th Date
+    %tbody
+      - @lightning_talks.each do |lightning_talk|
+        %tr
+          %td= link_to lightning_talk.name, user_lightning_talk_path(@user, lightning_talk)
+          %td= lightning_talk.day.talk_date.strftime("%m/%d/%Y")

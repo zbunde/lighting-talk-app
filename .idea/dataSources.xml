@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3776765398">
+    <data-source source="LOCAL" name="Rails lighting-talk-app: development" uuid="2fce6b28-da92-4c76-8ac0-f29bd3af339c">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:lighting-talk-app_development</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails lighting-talk-app: test" uuid="8c69c107-a92f-4a00-93f5-db96a26ea096">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:lighting-talk-app_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails lighting-talk-app: production" uuid="d48bf683-c6f9-4117-9631-c49ea54d2720">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:lighting-talk-app_production</jdbc-url>
+      <user-name>lighting-talk-app</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfe6dfe3dfeddfe2dffedfe3dfe4dfeddf87dffedfebdfe6dfe1df87dfebdffadffadff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

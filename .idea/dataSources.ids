@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails lighting-talk-app: development" uuid="2fce6b28-da92-4c76-8ac0-f29bd3af339c">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails lighting-talk-app: test" uuid="8c69c107-a92f-4a00-93f5-db96a26ea096">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails lighting-talk-app: production" uuid="d48bf683-c6f9-4117-9631-c49ea54d2720">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

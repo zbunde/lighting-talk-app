@@ -1,0 +1,6 @@
+.container
+  .page-header
+    .pull-right
+      = link_to 'Admin Users Index', admin_users_path, class: 'btn btn-pink'
+    %h1= "Edit #{@user.username}"
+= render partial: 'form', locals:{ url: admin_user_path(@user) }

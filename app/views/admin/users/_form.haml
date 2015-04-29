@@ -1,0 +1,22 @@
+.container
+  - if @user.errors.any?
+    - @user.errors.full_messages.each do |message|
+      .alert.alert-danger
+        = message
+
+  = form_for @user, url: url, html: { class: "form-horizontal" } do |f|
+    .form-group
+      = f.label :username, class: "control-label col-md-2"
+      .col-md-4
+        = f.text_field :username, class: "form-control"
+    .form-group
+      = f.label :email, class: "control-label col-md-2"
+      .col-md-4
+        = f.email_field :email, class: "form-control"
+    .form-group
+      = f.label :admin, class: "control-label col-md-2"
+      .col-md-1
+        = f.check_box :admin
+    .form-group
+      .col-md-offset-2.col-md-9
+        = f.submit class: "btn btn-primary"

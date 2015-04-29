@@ -1,0 +1,16 @@
+.container
+  %h2.page-header
+    Lightning Talks for
+    = @user.username
+
+  %table.table.table-striped
+    %thead
+      %th Talk
+      %th User
+      %th Date
+    %tbody
+      - @lightning_talks.each do |lightning_talk|
+        %tr
+          %td=lightning_talk.name
+          %td= link_to lightning_talk.user.username, user_lightning_talks_path(lightning_talk.user)
+          %td= link_to lightning_talk.day.talk_date, day_lightning_talks_path(lightning_talk.day)

@@ -1,0 +1,28 @@
+.container
+  .page-header
+    .pull-right
+      = link_to 'Admin Lightning Talks Index', admin_lightning_talks_path, class: 'btn btn-pink'
+    %h1= "Edit Talk: #{@lightning_talk.name}"
+  - if @lightning_talk.errors.present?
+    - @lightning_talk.errors.full_messages.each do |message|
+      .alert.alert-danger
+        = message
+  = form_for @lightning_talk, url: admin_lightning_talk_path(@lightning_talk), html: {class: "form-horizontal"} do |f|
+    .form-group
+      = f.label :name, "Talk Topic", class: "control-label col-md-2"
+      .col-md-9
+        = f.text_field :name, class: "form-control"
+
+    .form-group
+      = f.label :day_id, class: "control-label col-md-2"
+      .col-md-3
+        = f.select :day_id, options_from_collection_for_select(@days, "id", "talk_date", @lightning_talk.day.id), {}, class: "form-control"
+
+    .form-group
+      = f.label :user_id, class: "control-label col-md-2"
+      .col-md-3
+        = f.select :user_id, options_from_collection_for_select(@users, "id", "username", @lightning_talk.user.id), {}, class: "form-control"
+
+    .form-group
+      .col-md-offset-2.col-md-9
+        = f.submit "Update Lightning Talk", class: "btn btn-primary"

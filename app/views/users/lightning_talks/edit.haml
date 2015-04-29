@@ -1,0 +1,7 @@
+.container
+  .page-header
+    .pull-right
+      %h3= "Date: #{@lightning_talk.day.talk_date.strftime( '%m/%d/%Y')}"
+    %h1= "Edit Talk: #{@lightning_talk.name}"
+
+= render partial: 'form', locals:{submit_button: 'Update Lightning Talk', new_form: false }

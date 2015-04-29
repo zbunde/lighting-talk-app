@@ -1,0 +1,13 @@
+.container
+  %h2
+    New Lightning Talk For
+    = @day.talk_date.readable_inspect
+  = form_for ([@day, @lightning_talk]), html: {class: "form-horizontal"} do |f|
+    .form-group
+      = f.label :name, "Talk Topic", class: "control-label col-md-2"
+      .col-md-9
+        = f.text_field :name, class: "form-control"
+
+    .form-group
+      .col-md-offset-2.col-md-9
+        = f.submit "Create Lightning Talk", class: "btn btn-primary"

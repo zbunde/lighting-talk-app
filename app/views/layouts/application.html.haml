@@ -1,0 +1,40 @@
+!!!
+%html
+  %head
+    %title LightingTalkApp
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container
+      %nav.navbar.navbar-default
+        .container-fluid
+          / Brand and toggle get grouped for better mobile display
+          .navbar-header
+            %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+<<<<<<< HEAD
+            = link_to "g7 Lightning Talks", root_path, class: 'navbar-brand'
+=======
+            = link_to "g9 Lightning Talks", root_path, class: 'navbar-brand'
+>>>>>>> 6a3867a0ef542d6fdff8000fd68da9d9382ecb17
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            %ul.nav.navbar-nav.navbar-right
+              -if current_user
+                - if current_user.admin
+                  %li= link_to "New Lightning Talk", new_user_lightning_talk_path(current_user)
+                  %li= link_to "Admin", admin_path
+                  %li= link_to "Sign Out", sign_out_path
+                - else
+                  %li= link_to "New Lightning Talk", new_user_lightning_talk_path(current_user)
+                  %li= link_to "Sign Out", sign_out_path
+              - else
+                %li= link_to "Sign In", sign_in_path
+
+      - if flash[:notice]
+        .alert.alert-warning
+          =flash[:notice]
+    = yield

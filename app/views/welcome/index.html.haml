@@ -1,0 +1,65 @@
+.container
+  .col-md-8
+    %h2 Upcoming Talks
+    #accordion.panel-group{"aria-multiselectable" => "true", :role => "tablist"}
+      - @upcoming_days.each do |day|
+        .panel.panel-default
+          #headingOne.panel-heading{"aria-controls" => "collapse#{day.id}", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse#{day.id}", :role => "tab"}
+            %h4.panel-title
+              %span.glyphicon.glyphicon-chevron-down{"aria-controls" => "collapse#{day.id}", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse#{day.id}"}
+              %a{"aria-controls" => "collapse#{day.id}", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapse#{day.id}"}
+                =day.talk_date.readable_inspect
+              %span.pull-right
+                Slots Available:
+                %span.badge=day.number_of_slots
+
+          .panel-collapse.collapse{"aria-labelledby" => "headingOne", :role => "tabpanel", :id => "collapse#{day.id}", class: "#{day == @upcoming_days.first ? 'in' : ''}"}
+            .panel-body
+              = link_to "Sign Up", new_day_lightning_talk_path(day), class: "btn btn-info btn-xs pull-right"
+              %table.table-striped.table
+                %thead
+                  %th Talk Topic
+                  %th Speaker
+                %tbody
+                  - day.lightning_talks.each_with_index do |lightning_talk, i|
+                    %tr{ class: "#{i % 2 == 0 ? 'info' : 'default'}"}
+                      %td=lightning_talk.name
+                      %td=lightning_talk.user.username
+                      - if lightning_talk.user == current_user
+                        %td= link_to 'Edit', edit_user_lightning_talk_path(current_user, lightning_talk)
+                      - else
+                        %td
+                  - day.number_of_slots.times do |i|
+                    %tr.danger
+                      %td
+                        %b ** Available **
+                      %td
+                      %td
+  .col-md-4
+    %h2 Previous Talks
+    .list-group
+      - @previous_days.each do |day|
+        = link_to day_lightning_talks_path(day), class: "list-group-item" do
+          =day.talk_date.readable_inspect
+    %h2
+      Talk Ideas
+      - if current_user
+        %button.btn.btn-xs.btn-primary{"data-target" => ".bs-example-modal-sm", "data-toggle" => "modal", :type => "button"} New Talk Idea
+        .modal.fade.bs-example-modal-sm{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                New Talk Idea
+              .modal-body
+                = form_for @talk_idea, html: { class: "form-inline" } do |f|
+                  .form-group
+                    = f.label :name do
+                      Talk Idea
+                    = f.text_field :name, class: "form-control"
+                  .form-group
+                    = f.submit class: "btn btn-info"
+    %ul.list-group
+      - @talk_ideas.each do |talk_idea|
+        %li.list-group-item
+          = talk_idea.name
+          = link_to "Sign Up", new_talk_idea_lightning_talk_path(talk_idea), class: "btn btn-info btn-xs pull-right"
